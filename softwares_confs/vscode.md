@@ -1,5 +1,10 @@
 # VS CODE
 
+## Confiogurations
+
+### Add FiraCode as default font with ligatures
+
+
 ## EXTENSIONS
 
 #### Cobalt2 Theme Official : wesbos.theme-cobalt2
