@@ -52,7 +52,7 @@ git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$
 Then edit .zshrc and add `ZSH_THEME="powerlevel10k/powerlevel10k"`
 Then `logout` and `login`
 
-### COnfiguration
+### Configuration
 
 ##### Syntax highlighting
 
@@ -63,6 +63,49 @@ activate it by addin the plugin in .zshrc
 `plugins=(git ... zsh-syntax-highlighting ...)`
 
 
+## Install Docker
+
+```bash
+sudo apt-get update
+
+sudo apt-get install \
+    apt-transport-https \
+    ca-certificates \
+    curl \
+    gnupg \
+    lsb-release
+```
+add Docker's GPG Key: 
+
+```bash
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+```
+
+set up stable repo :
+```bash
+echo \
+  "deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu \
+  $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+```
+
+install docker engine :
+```bash
+sudo apt-get update
+
+sudo apt-get install docker-ce docker-ce-cli containerd.io
+```
+
+post install steps : 
+
+create the docker group :
+```bash
+sudo groupadd docker
+```
+
+add current user to group :
+```bash
+sudo usermod -aG docker $USER
+```
 
 ## TroubleShoot
 
