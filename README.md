@@ -2,6 +2,14 @@
 
 ## First Installs
 
+### Curl
+
 ```bash
-apt install curl && git
+sudo apt install curl
 ```
+
+### Git
+```bash
+sudo apt install git
+```
+
