@@ -19,10 +19,13 @@ sudo apt install git
 ```bash
 sudo apt install zsh
 ```
-Make zsh default shell : 
+
+Make zsh default shell :
+
 ```bash
 chsh -s $(which zsh)
 ```
+
 Then `logout` and `login`
 
 ### oh-my-zsh
@@ -30,12 +33,14 @@ Then `logout` and `login`
 ```bash
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 ```
+
 Then `logout` and `login`
 
 ### Install fonts
 
 In the fonts folder, the 4 Meslog
 then
+
 ```bash
 sudo apt install fonts-firacode
 ```
@@ -49,6 +54,7 @@ then enable Meslog font in terminal.
 ```bash
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
 ```
+
 Then edit .zshrc and add `ZSH_THEME="powerlevel10k/powerlevel10k"`
 Then `logout` and `login`
 
@@ -59,9 +65,9 @@ Then `logout` and `login`
 ```bash
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $ZSH_CUSTOM/plugins/zsh-syntax-highlighting
 ```
+
 activate it by addin the plugin in .zshrc
 `plugins=(git ... zsh-syntax-highlighting ...)`
-
 
 ## Install Docker
 
@@ -75,13 +81,15 @@ sudo apt-get install \
     gnupg \
     lsb-release
 ```
-add Docker's GPG Key: 
+
+add Docker's GPG Key:
 
 ```bash
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
 ```
 
 set up stable repo :
+
 ```bash
 echo \
   "deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu \
@@ -89,31 +97,48 @@ echo \
 ```
 
 install docker engine :
+
 ```bash
 sudo apt-get update
 
 sudo apt-get install docker-ce docker-ce-cli containerd.io
 ```
 
-post install steps : 
+post install steps :
 
 create the docker group :
+
 ```bash
 sudo groupadd docker
 ```
 
 add current user to group :
+
 ```bash
 sudo usermod -aG docker $USER
+```
+
+## Install docker compose
+
+get docker-compose stable release (v1.29.2) :
+
+```bash
+ sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+```
+
+Apply executable permissions :
+
+```bash
+  sudo chmod +x /usr/local/bin/docker-compose
 ```
 
 ## TroubleShoot
 
 > Ubuntu Software is not lauching
 
-Try to uninstall and re install it : 
+Try to uninstall and re install it :
+
 ```bash
 sudo snap remove snap-store
 sudo snap install snap-store
 ```
-
