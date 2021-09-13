@@ -1,0 +1,16 @@
+#!/bin/sh
+# Redirect output to stderr.
+exec 1>&2
+
+consoleregexp='^[+]*console\.log'
+# CHECK
+if test $(git diff --cached | grep $consoleregexp | wc -l) != 0
+then
+  echo  "There is still console.log in your modifications, please remove them before commiting"
+  exit 1
+fi
+if test $(git diff | grep $consoleregexp | wc -l) != 0
+then
+        echo "log found" 
+        exit 1
+fi
