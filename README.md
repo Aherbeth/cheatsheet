@@ -118,6 +118,10 @@ add current user to group :
 sudo usermod -aG docker $USER
 ```
 
+```bash
+newgrp docker
+```
+
 ## Install docker compose
 
 get docker-compose stable release (v1.29.2) :
